@@ -5,10 +5,24 @@ import axios from 'axios';
 import Layout from '../src/components/Layout';
 
 const PostLink = props => (
-  <li key={props.show.id}>
+  <li>
     <Link href="/post/[id]" as={`/post/${props.show.id}`}>
       <a>{props.show.name}</a>
     </Link>
+    <style jsx>{`
+      li {
+        list-style: none;
+        margin: 5px 0;
+      }
+
+      a {
+        color: red;
+      }
+
+      a:hover {
+        opacity: 0.6;
+      }
+    `}</style>
   </li>
 );
 
@@ -17,11 +31,24 @@ const Index = props => (
     <h1>Batman TV Shows</h1>
     <ul>
       {props.shows.map(show => (
-        <div>
-          <PostLink show={show} />
-        </div>
+        <PostLink key={show.id} show={show} />
       ))}
     </ul>
+    <style jsx global>{`
+      h1 {
+        font-family: 'Arial';
+        color: blue;
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      a {
+        font-family: 'Arial';
+        text-decoration: none;
+      }
+    `}</style>
   </Layout>
 );
 
