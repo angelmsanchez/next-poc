@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
+    "build:export:serve": "npm run build && npm run export && npm run serve",
     "dev": "next",
+    "export": "next export",
+    "serve": "cd out && serve -p 8080",
     "start": "next start -p %PORT%"
   },
   "keywords": [],

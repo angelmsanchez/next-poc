@@ -23,6 +23,9 @@ coverage
 # next files
 .next/
 
+# static pages
+out/
+
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
