@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const Profile = props => {
+const Profile = (props: any) => {
   const [profileState, setProfileState] = useState(props);
 
   useEffect(() => {

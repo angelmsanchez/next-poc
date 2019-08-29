@@ -1,7 +1,7 @@
 import Layout from '../../src/components/Layout';
 import axios from 'axios';
 
-const Post = props => (
+const Post = (props: any) => (
   <Layout>
     <h1>{props.show.name}</h1>
     <p>{props.show.summary.replace(/<[/]?p>/g, '')}</p>
@@ -9,7 +9,7 @@ const Post = props => (
   </Layout>
 );
 
-Post.getInitialProps = async function(context) {
+Post.getInitialProps = async function (context: any) {
   const { id } = context.query;
   const res = await axios.get(`https://api.tvmaze.com/shows/${id}`);
   const show = await res.data;

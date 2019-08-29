@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Layout from '../src/components/Layout';
 
-const PostLink = props => (
+const PostLink = (props: any) => (
   <li>
     <Link href="/post/[id]" as={`/post/${props.show.id}`}>
       <a>{props.show.name}</a>
@@ -26,11 +26,11 @@ const PostLink = props => (
   </li>
 );
 
-const Index = props => (
+const Index = (props: any) => (
   <Layout>
     <h1>Batman TV Shows</h1>
     <ul>
-      {props.shows.map(show => (
+      {props.shows.map((show: any) => (
         <PostLink key={show.id} show={show} />
       ))}
     </ul>
@@ -56,10 +56,10 @@ Index.getInitialProps = async function () {
   const res = await axios.get('https://api.tvmaze.com/search/shows?q=batman');
   const data = await res.data;
 
-  console.log(`Show data fetched. Count:`, data.map(entry => entry.show));
+  console.log(`Show data fetched. Count:`, data.map((entry: any) => entry.show));
 
   return {
-    shows: data.map(entry => entry.show)
+    shows: data.map((entry: any) => entry.show)
   };
 };
 
