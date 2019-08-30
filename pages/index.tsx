@@ -52,7 +52,7 @@ const Index = (props: any) => (
   </Layout>
 );
 
-Index.getInitialProps = async function () {
+Index.getInitialProps = async () => {
   const res = await axios.get('https://api.tvmaze.com/search/shows?q=batman');
   const data = await res.data;
 

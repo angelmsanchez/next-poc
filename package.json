@@ -4,6 +4,9 @@
   "description": "POC with next framework",
   "main": "index.js",
   "scripts": {
+    "analyze": "cross-env BUNDLE_ANALYZE=both next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "build": "next build",
     "build:export:serve": "npm run build && npm run export && npm run serve",
     "dev": "next",
@@ -24,6 +27,10 @@
     "@types/node": "^12.7.2",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
+    "@zeit/next-bundle-analyzer": "^0.1.2",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.4",
+    "firebase": "^5.8.6",
     "typescript": "^3.6.2"
   }
 }

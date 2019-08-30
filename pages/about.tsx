@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Layout from '../src/components/Layout';
 import Profile from '../src/components/Profile';
 
-export default function About() {
+function About({ userAgent }: any) {
   const [state, setState] = useState({
     name: 'Param',
     email: 'param@gmail.com',
@@ -19,6 +19,7 @@ export default function About() {
   return (
     <Layout>
       <p>About Page:</p>
+      <h1>Hello world! - user agent: {userAgent}</h1>
       <div>
         <Profile {...state} />
         <button onClick={handleChange}>Change Profile</button>
@@ -26,3 +27,10 @@ export default function About() {
     </Layout>
   );
 }
+
+About.getInitialProps = async ({ req }: any) => {
+  const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
+  return { userAgent };
+};
+
+export default About
